@@ -1,0 +1,12 @@
+version: '3.8'
+services:
+  frontend:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      - INVENTORY_HOST=${INVENTORY_HOST:-inventory-service}
+      - ORDER_HOST=${ORDER_HOST:-order-service}
+    volumes:
+      - .:/app
+      - /app/node_modules
